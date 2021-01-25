@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style_timer.css') }}" />
+		
+		<title>Timer</title>
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+        
+	</head>
+	<body>
+		<div class="container" id="timerbox">
+			
+		
+			<div class="container" id="heading">
+				<h1>Meeting Meditation</h1>
+			</div>
+			
+			<div class="container" id="timerbutton">
+				
+				<div class="circle">
+					
+					<!--
+						<div class="arrow-right"></div>
+					
+					<button type="button" id="playbutton" onclick="playSound(this, '{{ url_for('static', filename='meetingmeditation.mp3') }}'">Play</button>
+
+					<script type="text/javascript">
+			          	function playSound(el,soundfile) {
+			                if (el.mp3) {
+			                	el.mp3.play();
+			                } else {
+			                    el.mp3 = new Audio(soundfile);
+			                    el.mp3.play();
+			                }
+			            }
+					</script>
+
+					<audio id="testAudio" hidden src="https://api.twilio.com/cowbell.mp3" type="audio/mpeg">//-->
+					<audio id="testAudio" hidden src="https://www.zapsplat.com/wp-content/uploads/2015/music-one/music_zapsplat_exploring.mp3?_=1">
+					</audio>
+
+					<!--<button class="btn" id="playAudio">Play</button> -->
+					<button class="btn" id="playAudio" onclick="changeplaypause()">
+						<i class="fa fa-play"></i>
+					</button>
+
+					<script type="text/javascript">
+						document.getElementById("playAudio").addEventListener("click", function(){
+						    var audio = document.getElementById('testAudio');
+						    if(this.className == 'is-playing'){
+						      this.className = "";
+						      //this.innerHTML = "Play"
+						      audio.pause();
+						      //this.addClass('fa-play');
+						      //this.removeClass('fa-pause');
+						      this.find('i').toggleClass('fa-pause');
+						    }else{
+						      this.className = "is-playing";
+						      //this.innerHTML = "Pause";
+						      audio.play();
+						      //this.addClass('fa-pause');
+						      //this.removeClass('fa-play');
+						      this.find('i').toggleClass('fa-play');
+						    }
+
+
+						});
+					</script>
+
+
+
+				</div>
+				
+
+			</div>
+			<div class="container" id="volumebox">
+				<div class="container" id="durationbox">
+					<button type="button" id="b1">1min</button>
+					<button type="button" id="b5">5min</button>
+					<button type="button" id="b10">10min</button>
+					
+				</div>
+				<div class="container" id="sliderbox">
+				<!--
+
+
+						<div class="arrow-right"></div>
+					
+
+					<audio controls="">
+						<source src="{{ url_for('static', filename='meetingmeditation.mp3') }}" type="file/mpeg">">
+						<p>This browser does not support HTML5 audio</p>
+					</audio>
+				//-->	
+					<div class="slidecontainer">
+						<input type="range" min="1" max="100" step="1" value="50" class="slider" id="volslider">
+						
+						<audio id="testAudio2" src="https://www.zapsplat.com/wp-content/uploads/2015/music-one/music_zapsplat_exploring.mp3?_=1" controls>
+						</audio>
+
+
+						<script type="text/javascript">
+							$("#volslider").slider({
+							    value  : 50,
+							    step   : 1,
+							    range  : 'min',
+							    min    : 1,
+							    max    : 100,
+							    change : function(){
+							        var value = $("#volslider").slider("value");
+							        document.getElementById("b1").innerHTML = "change";
+							        document.getElementById("testAudio").volume = (value / 100);
+							    }
+							});
+
+						</script>
+
+					</div>
+				</div>				
+			</div>
+		</div>
+		
+	</body>
+</html>
